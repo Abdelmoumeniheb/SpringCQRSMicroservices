@@ -12,7 +12,11 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: project
-          uri: http://localhost:8070
+        - id: queryService
+          uri: http://localhost:8090
+          predicates:
+            - Path=/substances/**
+        - id : commandService
+          uri : http://localhost:8070
           predicates:
             - Path=/substances/**

@@ -29,7 +29,7 @@ public class SubstanceEventListener {
         this.substanceRepository = substanceRepositor;
     }
 
-    @KafkaListener(topics = "${kafka.topic.name}",groupId = "query-service")
+    @KafkaListener(topics = "${spring.kafka.topic.name}",groupId = "query-service")
     void listener(String message){
         try{
             Map<String,String> subEvent = objectMapper.readValue(message,Map.class);
